@@ -1,0 +1,24 @@
+<div class="form-container card">
+  <form class="form card-body" action="/send_feedback" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Enter name">
+    </div>
+    <div class="form-group">
+    <label for="email">Email</label>
+      <input type="text" class="form-control" id="email" name="email" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+      <label for="message">Message</label>
+        <textarea class="form-control" id="message" name="message"></textarea>
+    </div>
+    <div class="custom-file">
+      <input type="file" class="custom-file-input" id="customFile" name="attached_file">
+      <label class="custom-file-label" for="customFile">Choose file</label>
+    </div>
+    <%= recaptcha_tags %>
+    <button type="submit" class="btn btn-primary w-100">
+      Send feedback
+    </button>
+  </form>
+</div>

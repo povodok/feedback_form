@@ -1,0 +1,31 @@
+<div class="form-container card">
+  <form class="form card-body" action="/send_feedback" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" value=<%= @feedback.name %>>
+      <span class="invalid-feedback"><%= @feedback.errors[:name] %></span>
+    </div>
+    <div class="form-group">
+    <label for="email">Email</label>
+      <input type="text" class="form-control" id="email" name="email" placeholder="Enter email" value=<%= @feedback.email %>>
+      <span class="invalid-feedback"><%= @feedback.errors[:email] %></span>
+    </div>
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea class="form-control" id="message" name="message"><%= @feedback.message %></textarea>
+      <span class="invalid-feedback"><%= @feedback.errors[:message] %></span>
+    </div>
+    <div class="custom-file">
+      <input type="file" class="custom-file-input" id="customFile" name="attached_file">
+      <label class="custom-file-label" for="customFile">
+        <%= (@feedback.file[:filename] if @feedback.file) || 'Choose file' %>
+      </label>
+    </div>
+    <div class="form-group">
+      <%= recaptcha_tags %>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">
+      Send feedback
+    </button>
+  </form>
+</div>
